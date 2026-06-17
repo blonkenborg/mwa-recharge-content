@@ -20,6 +20,8 @@ summary: "1–2 sentence hook. What will the reader learn or gain?"
 tags:                               # pick from the allowed list below
   - habit-building
 publishedAt: YYYY-MM-DD             # today's date
+context: streak-dot-engagement     # optional — where in the app this surfaces
+format: in-app-short               # optional — "in-app-short" (150-250 words) or omit for long-form
 relatedChallengeTypes:              # optional — pick from allowed list below
   - weeklySMWorkoutDays
 ---
@@ -95,3 +97,22 @@ When unsure what to write, draw from these topics:
 ## compile.yml auto-compilation
 
 On every merge to `main`, a GitHub Action compiles all markdown files into `content.json`. The MWA fetches this file at runtime. Do not manually edit `content.json`.
+
+## In-app short format (context-triggered articles)
+
+When `format: in-app-short` is set, the article surfaces inside the app as a popup triggered by a specific UI element (e.g. tapping the streak dot). Use a different style:
+
+- **150–250 words only** — reads in under 60 seconds
+- No `##` section headers — flowing prose
+- Second person ("you"), present tense — feels personal
+- Bold 1–2 key terms maximum
+- End with a single forward-momentum sentence (pulls the user back in, not away)
+- Do NOT end with "How this connects to your training" — it's already implied by the context
+
+### Allowed context values
+```
+streak-dot-engagement        # tapping the pulsating streak dot
+challenge-completion         # completing a weekly challenge
+streak-milestone             # hitting a streak milestone (e.g. 4 weeks)
+first-workout                # after first ever logged workout
+```
